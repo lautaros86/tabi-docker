@@ -1,0 +1,29 @@
+
+<div class="card card-primary">
+  <div class="card-header">
+    <h3 class="card-title">{{title}}</h3>
+
+    <div class="card-tools">
+      <button type="button" class="btn btn-tool" data-card-widget="collapse">
+        <i class="fas fa-minus"></i>
+      </button>
+      <button type="button" class="btn btn-tool" data-card-widget="remove">
+        <i class="fas fa-times"></i>
+      </button>
+    </div>
+  </div>
+  <div class="card-body">
+    <div class="chart">
+      <div style="display: block;">
+        <canvas baseChart width="500" height="400"
+                style="min-height: 400px; height: 300px; max-height: 400px; max-width: 100%;"
+                [type]="'line'"
+                [data]="lineChartData"
+                [options]="lineChartOptions"
+                [legend]="lineChartLegend">
+        </canvas>
+      </div>
+    </div>
+  </div>
+  <!-- /.card-body -->
+</div>

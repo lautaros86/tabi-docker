@@ -1,0 +1,33 @@
+<!-- Main content -->
+<section class="content">
+  <div class="container-fluid">
+<!-- Small boxes (Stat box) -->
+    <app-totalizadores [data]="data"></app-totalizadores>
+<!-- /.row -->
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-md-6">
+          <!-- AREA CHART -->
+          <app-barrios-en-tiempo [data]="data"></app-barrios-en-tiempo>
+
+          <!-- /.card -->
+
+
+        </div>
+        <!-- /.col (LEFT) -->
+        <div class="col-md-6">
+          <!-- LINE CHART -->
+          <app-rango-de-edad [data]="data"></app-rango-de-edad>
+
+          <!-- /.card -->
+
+
+
+        </div>
+        <!-- /.col (RIGHT) -->
+      </div>
+      <!-- /.row -->
+    </div><!-- /.container-fluid -->
+<!-- Main row -->
+  </div>
+</section>

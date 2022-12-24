@@ -1,0 +1,29 @@
+version: "3"
+services:
+
+  ui:
+    build:
+      context: ./front
+      dockerfile: Dockerfile
+    ports:
+    - 4200:4200
+    container_name: tabi-front
+    networks:
+    - tabi
+    depends_on:
+    - api
+  
+  api:
+    build:
+      context: ./back
+      dockerfile: Dockerfile
+    ports:
+    - 3000:3000
+    container_name: tabi-back
+    networks:
+    - tabi
+  
+networks:
+  tabi:
+    driver: bridge
+    
