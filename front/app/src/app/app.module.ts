@@ -18,6 +18,7 @@ import { BarriosEnTiempoComponent } from './charts/barrios-en-tiempo/barrios-en-
 import { RangoDeEdadComponent } from './charts/rango-de-edad/rango-de-edad.component';
 import { TotalizadoresComponent } from './charts/totalizadores/totalizadores.component';
 import { DatosPorZonaComponent } from './charts/datos-por-zona/datos-por-zona.component';
+import {DataTablesModule} from "angular-datatables";
 
 @NgModule({
   declarations: [
@@ -40,7 +41,8 @@ import { DatosPorZonaComponent } from './charts/datos-por-zona/datos-por-zona.co
     LeafletModule,
     LeafletMarkerClusterModule,
     HttpClientModule,
-    NgChartsModule
+    NgChartsModule,
+    DataTablesModule
   ],
   providers: [],
   bootstrap: [AppComponent]

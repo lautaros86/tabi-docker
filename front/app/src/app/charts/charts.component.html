@@ -3,14 +3,15 @@
     <app-totalizadores [data]="data"></app-totalizadores>
     <div class="container-fluid">
       <div class="row">
+
+        <div class="col-md-12">
+          <app-datos-por-zona></app-datos-por-zona>
+        </div>
         <div class="col-md-6">
           <app-barrios-en-tiempo [data]="data"></app-barrios-en-tiempo>
         </div>
         <div class="col-md-6">
           <app-rango-de-edad [data]="data"></app-rango-de-edad>
-        </div>
-        <div class="col-md-6">
-          <app-datos-por-zona [data]="data"></app-datos-por-zona>
         </div>
       </div>
     </div>
