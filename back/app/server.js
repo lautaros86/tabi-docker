@@ -34,7 +34,7 @@ app.get('/data-by-zone', cors(), function (req, res) {
     let parsedPuntos = JSON.parse(puntos);
     let parsedBarrios = JSON.parse(barrios);
     let data = getDataByZone(parsedPuntos, parsedBarrios)
-    res.json(data);
+    res.json({data});
 });
 
 
