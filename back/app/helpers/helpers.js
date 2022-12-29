@@ -107,11 +107,52 @@ function processData(data, dataByZone, objectType) {
     }
 }
 
+function convertDataToClass(dataByZone) {
+    let response = []
+    let totalizers = ["barriosProv", "habitantesProv", "puntosProv", "barriosDep", "habitantesDep", "puntosDep", "barriosLoc", "habitantesLoc", "puntosLoc",]
+    Object.keys(dataByZone).forEach(provName => {
+        if (!totalizers.includes(provName)) {
+            let provincia = {
+                nombre: provName,
+                barriosProv: dataByZone[provName].barriosProv,
+                habitantesProv: dataByZone[provName].habitantesProv,
+                puntosProv: dataByZone[provName].puntosProv,
+                departamentos: [],
+            }
+            Object.keys(dataByZone[provName]).forEach(depto => {
+                if (!totalizers.includes(depto)) {
+                    let departamento = {
+                        nombre: depto,
+                        barriosDep: dataByZone[provName][depto].barriosDep,
+                        habitantesDep: dataByZone[provName][depto].habitantesDep,
+                        puntosDep: dataByZone[provName][depto].puntosDep,
+                        localidades: [],
+                    }
+                    Object.keys(dataByZone[provName][depto]).forEach(loc => {
+                        if (!totalizers.includes(loc)) {
+                            let localidad = {
+                                nombre: loc,
+                                barriosLoc: dataByZone[provName][depto][loc].barriosLoc,
+                                habitantesLoc: dataByZone[provName][depto][loc].habitantesLoc,
+                                puntosLoc: dataByZone[provName][depto][loc].puntosLoc,
+                            }
+                            departamento.localidades.push(localidad)
+                        }
+                    })
+                    provincia.departamentos.push(departamento)
+                }
+            })
+            response.push(provincia)
+        }
+    })
+    return response
+}
+
 function getDataByZone(puntos, barrios) {
     let dataByZone = {};
     barrios.data.forEach(barrio => processData(barrio, dataByZone, "barrio"))
     puntos.data.forEach(punto => processData(punto, dataByZone, "punto"))
-    return dataByZone;
+    return convertDataToClass(dataByZone);
 }
 
 module.exports = {
