@@ -17,6 +17,7 @@ import { NgChartsModule } from 'ng2-charts';
 import { BarriosEnTiempoComponent } from './charts/barrios-en-tiempo/barrios-en-tiempo.component';
 import { RangoDeEdadComponent } from './charts/rango-de-edad/rango-de-edad.component';
 import { TotalizadoresComponent } from './charts/totalizadores/totalizadores.component';
+import { DatosPorZonaComponent } from './charts/datos-por-zona/datos-por-zona.component';
 
 @NgModule({
   declarations: [
@@ -31,6 +32,7 @@ import { TotalizadoresComponent } from './charts/totalizadores/totalizadores.com
     BarriosEnTiempoComponent,
     RangoDeEdadComponent,
     TotalizadoresComponent,
+    DatosPorZonaComponent
   ],
   imports: [
     BrowserModule,
