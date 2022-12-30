@@ -25,61 +25,61 @@ function initProv(dataByZone, prov, depto, loc, barrio, total, punto) {
     dataByZone[prov] = {
         [depto]: {
             [loc]: {
-                puntosLoc: punto ? 1 : 0,
-                barriosLoc: barrio ? 1 : 0,
-                habitantesLoc: total
+                puntos: punto ? 1 : 0,
+                barrios: barrio ? 1 : 0,
+                habitantes: total
             },
-            puntosDep: punto ? 1 : 0,
-            barriosDep: barrio ? 1 : 0,
-            habitantesDep: total
+            puntos: punto ? 1 : 0,
+            barrios: barrio ? 1 : 0,
+            habitantes: total
         },
-        puntosProv: punto ? 1 : 0,
-        barriosProv: barrio ? 1 : 0,
-        habitantesProv: total
+        puntos: punto ? 1 : 0,
+        barrios: barrio ? 1 : 0,
+        habitantes: total
     };
 }
 
 function initDepto(dataByZone, prov, depto, loc, barrio, total, punto) {
     dataByZone[prov][depto] = {
         [loc]: {
-            puntosLoc: punto ? 1 : 0,
-            barriosLoc: barrio ? 1 : 0,
-            habitantesLoc: total
+            puntos: punto ? 1 : 0,
+            barrios: barrio ? 1 : 0,
+            habitantes: total
         },
-        puntosDep: punto ? 1 : 0,
-        barriosDep: barrio ? 1 : 0,
-        habitantesDep: total
+        puntos: punto ? 1 : 0,
+        barrios: barrio ? 1 : 0,
+        habitantes: total
     };
     if (barrio) {
-        dataByZone[prov].barriosProv = dataByZone[prov].barriosProv + 1
-        dataByZone[prov].habitantesProv = dataByZone[prov].habitantesProv + total
+        dataByZone[prov].barrios = dataByZone[prov].barrios + 1
+        dataByZone[prov].habitantes = dataByZone[prov].habitantes + total
     }
     if (punto) {
-        dataByZone[prov].puntosProv = dataByZone[prov].puntosProv + 1
+        dataByZone[prov].puntos = dataByZone[prov].puntos + 1
     }
 }
 
 function initLoc(dataByZone, prov, depto, loc, barrio, total, punto) {
     dataByZone[prov][depto][loc] = {
-        puntosLoc: punto ? 1 : 0,
-        barriosLoc: barrio ? 1 : 0,
-        habitantesLoc: total
+        puntos: punto ? 1 : 0,
+        barrios: barrio ? 1 : 0,
+        habitantes: total
     }
 }
 
 function increaseData(dataByZone, prov, depto, loc, barrio, total, punto) {
     if (barrio) {
-        dataByZone[prov][depto][loc].barriosLoc = dataByZone[prov][depto][loc].barriosLoc + 1
-        dataByZone[prov][depto][loc].habitantesLoc = dataByZone[prov][depto][loc].habitantesLoc + total
-        dataByZone[prov][depto].barriosDep = dataByZone[prov][depto].barriosDep + 1
-        dataByZone[prov][depto].habitantesDep = dataByZone[prov][depto].habitantesDep + total
-        dataByZone[prov].barriosProv = dataByZone[prov].barriosProv + 1
-        dataByZone[prov].habitantesProv = dataByZone[prov].habitantesProv + total
+        dataByZone[prov][depto][loc].barrios = dataByZone[prov][depto][loc].barrios + 1
+        dataByZone[prov][depto][loc].habitantes = dataByZone[prov][depto][loc].habitantes + total
+        dataByZone[prov][depto].barrios = dataByZone[prov][depto].barrios + 1
+        dataByZone[prov][depto].habitantes = dataByZone[prov][depto].habitantes + total
+        dataByZone[prov].barrios = dataByZone[prov].barrios + 1
+        dataByZone[prov].habitantes = dataByZone[prov].habitantes + total
     }
     if (punto) {
-        dataByZone[prov][depto][loc].puntosLoc = dataByZone[prov][depto][loc].puntosLoc + 1
-        dataByZone[prov][depto].puntosDep = dataByZone[prov][depto].puntosDep + 1
-        dataByZone[prov].puntosProv = dataByZone[prov].puntosProv + 1
+        dataByZone[prov][depto][loc].puntos = dataByZone[prov][depto][loc].puntos + 1
+        dataByZone[prov][depto].puntos = dataByZone[prov][depto].puntos + 1
+        dataByZone[prov].puntos = dataByZone[prov].puntos + 1
     }
 }
 
@@ -109,32 +109,32 @@ function processData(data, dataByZone, objectType) {
 
 function convertDataToClass(dataByZone) {
     let response = []
-    let totalizers = ["barriosProv", "habitantesProv", "puntosProv", "barriosDep", "habitantesDep", "puntosDep", "barriosLoc", "habitantesLoc", "puntosLoc",]
+    let totalizers = ["barrios", "habitantes", "puntos"]
     Object.keys(dataByZone).forEach(provName => {
         if (!totalizers.includes(provName)) {
             let provincia = {
                 nombre: provName,
-                barriosProv: dataByZone[provName].barriosProv,
-                habitantesProv: dataByZone[provName].habitantesProv,
-                puntosProv: dataByZone[provName].puntosProv,
+                barrios: dataByZone[provName].barrios,
+                habitantes: dataByZone[provName].habitantes,
+                puntos: dataByZone[provName].puntos,
                 departamentos: [],
             }
             Object.keys(dataByZone[provName]).forEach(depto => {
                 if (!totalizers.includes(depto)) {
                     let departamento = {
                         nombre: depto,
-                        barriosDep: dataByZone[provName][depto].barriosDep,
-                        habitantesDep: dataByZone[provName][depto].habitantesDep,
-                        puntosDep: dataByZone[provName][depto].puntosDep,
+                        barrios: dataByZone[provName][depto].barrios,
+                        habitantes: dataByZone[provName][depto].habitantes,
+                        puntos: dataByZone[provName][depto].puntos,
                         localidades: [],
                     }
                     Object.keys(dataByZone[provName][depto]).forEach(loc => {
                         if (!totalizers.includes(loc)) {
                             let localidad = {
                                 nombre: loc,
-                                barriosLoc: dataByZone[provName][depto][loc].barriosLoc,
-                                habitantesLoc: dataByZone[provName][depto][loc].habitantesLoc,
-                                puntosLoc: dataByZone[provName][depto][loc].puntosLoc,
+                                barrios: dataByZone[provName][depto][loc].barrios,
+                                habitantes: dataByZone[provName][depto][loc].habitantes,
+                                puntos: dataByZone[provName][depto][loc].puntos,
                             }
                             departamento.localidades.push(localidad)
                         }

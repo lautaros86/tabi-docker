@@ -17,8 +17,9 @@ import { NgChartsModule } from 'ng2-charts';
 import { BarriosEnTiempoComponent } from './charts/barrios-en-tiempo/barrios-en-tiempo.component';
 import { RangoDeEdadComponent } from './charts/rango-de-edad/rango-de-edad.component';
 import { TotalizadoresComponent } from './charts/totalizadores/totalizadores.component';
-import { DatosPorZonaComponent } from './charts/datos-por-zona/datos-por-zona.component';
+import {DatosPorZonaComponent} from './charts/datos-por-zona/datos-por-zona.component';
 import {DataTablesModule} from "angular-datatables";
+import {DatosBsasComponent} from "./charts/datos-bsas/datos-bsas.component";
 
 @NgModule({
   declarations: [
@@ -33,7 +34,8 @@ import {DataTablesModule} from "angular-datatables";
     BarriosEnTiempoComponent,
     RangoDeEdadComponent,
     TotalizadoresComponent,
-    DatosPorZonaComponent
+    DatosPorZonaComponent,
+    DatosBsasComponent
   ],
   imports: [
     BrowserModule,

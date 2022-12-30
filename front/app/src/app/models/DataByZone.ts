@@ -1,21 +1,15 @@
 
-export interface ProvinciaData {
+export interface Zona {
   nombre: string,
-  barriosProv: number,
-  habitantesProv: number,
-  puntosProv: number,
+  barrios: number,
+  habitantes: number,
+  puntos: number,
+}
+export interface ProvinciaData extends Zona {
   departamentos: DepartamentoData[]
 }
-export interface DepartamentoData {
-  nombre: string,
-  barriosProv: number,
-  habitantesProv: number,
-  puntosProv: number,
+export interface DepartamentoData extends Zona {
   localidades: LocalidadData[]
 }
-export interface LocalidadData {
-  nombre: string,
-  barriosProv: number,
-  habitantesProv: number,
-  puntosProv: number,
+export interface LocalidadData extends Zona {
 }
