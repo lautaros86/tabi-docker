@@ -23,3 +23,8 @@
 
 ## Iniciar docker compose nuevamente
 ```docker-compose up -d```
+
+# Autores
+- Lautaro Silva
+- Santiago Barcelo
+- 
